@@ -24,11 +24,15 @@ const lineup = [
 const chapters = [
   {
     n: 'Bab 1',
+    img: skinImg,
+    alt: 'Perempuan dengan kulit sensitif yang sedikit kemerahan menyentuh pipinya dengan lembut',
     title: 'Sudah mencoba banyak hal, kulit justru makin sensitif.',
     body: 'Cerita yang paling sering kami dengar: kemerahan, jerawat yang datang lagi, dan rasa ketarik setelah cuci muka.',
   },
   {
     n: 'Bab 2',
+    img: serumImg,
+    alt: 'ARN Ultra Glowing Serum dengan tranexamic peptide dan ferulic acid',
     title: 'Bahan aktif yang bekerja bersama kulit.',
     body: 'Cica untuk menenangkan, probiotik dan ceramide untuk barrier, tranexamic peptide untuk cerah yang merata. Teruji klinis.',
   },
@@ -48,35 +52,30 @@ const chapters = [
     </p>
 
     <ol class="mt-20 grid gap-14 sm:grid-cols-2 sm:gap-x-6 md:mt-28 lg:grid-cols-3 lg:gap-8">
-      <li class="lg:mt-0">
-        <figure class="overflow-hidden rounded-[1.75rem] bg-sand">
-          <Image src={skinImg} alt="Perempuan dengan kulit sensitif yang sedikit kemerahan menyentuh pipinya dengan lembut" widths={[480, 720, 960]} sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 92vw" class="aspect-[4/5] w-full object-cover" data-parallax />
-        </figure>
-        <p class="mt-6 text-sm font-semibold text-rose-deep">{chapters[0].n}</p>
-        <h3 class="mt-2 font-display text-[1.6rem] font-medium leading-[1.15] tracking-[-0.01em]">{chapters[0].title}</h3>
-        <p class="mt-3 max-w-[34ch] leading-relaxed text-ink/65">{chapters[0].body}</p>
-      </li>
-      <li class="lg:mt-24">
-        <figure class="overflow-hidden rounded-[1.75rem] bg-sand">
-          <Image src={serumImg} alt="ARN Ultra Glowing Serum dengan tranexamic peptide dan ferulic acid" widths={[480, 720, 960]} sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 92vw" class="aspect-[4/5] w-full object-cover" data-parallax />
-        </figure>
-        <p class="mt-6 text-sm font-semibold text-rose-deep">{chapters[1].n}</p>
-        <h3 class="mt-2 font-display text-[1.6rem] font-medium leading-[1.15] tracking-[-0.01em]">{chapters[1].title}</h3>
-        <p class="mt-3 max-w-[34ch] leading-relaxed text-ink/65">{chapters[1].body}</p>
-      </li>
-      <li class="sm:col-span-2 lg:col-span-1 lg:mt-16">
-        <figure class="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] bg-white sm:aspect-[8/5] lg:aspect-[4/5]">
-          <div class="absolute inset-y-0 left-1/2 aspect-[4/5] -translate-x-1/2">
-            {lineup.map((p) => (
-              <Image src={p.src} alt="" height={480} class={`absolute w-auto mix-blend-multiply [filter:brightness(1.04)_contrast(1.04)] ${p.pos}`} />
-            ))}
+      {chapters.map((c, i) => (
+        <li class:list={['flex flex-col', i === 2 && 'sm:col-span-2 lg:col-span-1']}>
+          {/* one frame for all three chapters: same radius, same sand ground, same 4:5 crop */}
+          {i === 2 ? (
+            <figure class="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] bg-sand sm:aspect-[8/5] lg:aspect-[4/5]">
+              <div class="absolute inset-y-0 left-1/2 aspect-[4/5] -translate-x-1/2 bg-sand">
+                {lineup.map((p) => (
+                  <Image src={p.src} alt="" height={480} class={`absolute w-auto mix-blend-multiply [filter:brightness(1.06)_contrast(1.04)] ${p.pos}`} />
+                ))}
+              </div>
+              <figcaption class="sr-only">Lima produk ARN: Gentle Facial Wash, Toner Essence, Ultra Glowing Serum, Skin Glowing Day Cream, Skin Glowing Barrier Cream</figcaption>
+            </figure>
+          ) : (
+            <figure class="overflow-hidden rounded-[1.75rem] bg-sand">
+              <Image src={c.img!} alt={c.alt!} widths={[480, 720, 960]} sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 92vw" class="aspect-[4/5] w-full object-cover" data-parallax />
+            </figure>
+          )}
+          <div class="mt-7 border-t border-ink/10 pt-5">
+            <p class="text-sm font-semibold text-rose-deep">{c.n}</p>
+            <h3 class="mt-2 max-w-[22ch] font-display text-[1.6rem] font-medium leading-[1.15] tracking-[-0.01em] text-ink">{c.title}</h3>
+            <p class="mt-3 max-w-[36ch] leading-relaxed text-ink/65">{c.body}</p>
           </div>
-          <figcaption class="sr-only">Lima produk ARN: Gentle Facial Wash, Toner Essence, Ultra Glowing Serum, Skin Glowing Day Cream, Skin Glowing Barrier Cream</figcaption>
-        </figure>
-        <p class="mt-6 text-sm font-semibold text-rose-deep">{chapters[2].n}</p>
-        <h3 class="mt-2 font-display text-[1.6rem] font-medium leading-[1.15] tracking-[-0.01em]">{chapters[2].title}</h3>
-        <p class="mt-3 max-w-[34ch] leading-relaxed text-ink/65">{chapters[2].body}</p>
-      </li>
+        </li>
+      ))}
     </ol>
   </div>
 </section>
