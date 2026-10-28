@@ -15,7 +15,7 @@ const tints = [
 ---
 
 <section id="ritual" class="relative overflow-hidden py-20 md:py-0" aria-labelledby="ritual-title" data-hscroll-section>
-  <div class="md:flex md:h-screen md:flex-col md:justify-center md:pt-20">
+  <div class="md:flex md:h-screen md:flex-col md:justify-center md:pt-24">
     <div class="mx-auto flex w-full max-w-7xl flex-col gap-6 px-5 sm:px-8 md:flex-row md:items-end md:justify-between">
       <div>
         <span class="eyebrow">Ritual ARN</span>
@@ -32,7 +32,7 @@ const tints = [
       <ol class="flex w-max snap-x snap-mandatory gap-4 px-5 sm:gap-6 sm:px-8 md:px-[max(2rem,calc((100vw-80rem)/2+2rem))]" data-hscroll-track>
         {products.map((p, i) => (
           <li id={p.slug} class="w-[86vw] shrink-0 snap-center sm:w-[78vw] md:w-[min(72vw,1040px)]">
-            <article class={`stage grid h-full md:h-[min(64vh,620px)] md:grid-cols-[1.1fr_1fr] ${tints[i]}`} aria-labelledby={`${p.slug}-name`}>
+            <article class={`stage grid h-full md:h-[min(56vh,620px)] md:grid-cols-[1.1fr_1fr] ${tints[i]}`} aria-labelledby={`${p.slug}-name`}>
               <div class="relative aspect-square overflow-hidden md:aspect-auto md:h-full">
                 <Image
                   src={p.image}
@@ -72,7 +72,7 @@ const tints = [
           </li>
         ))}
         <li class="w-[70vw] shrink-0 snap-center sm:w-[46vw] md:w-[min(30vw,420px)]">
-          <article class="stage flex h-full flex-col justify-between bg-indigo p-6 text-cream sm:p-8 md:h-[min(64vh,620px)]">
+          <article class="stage flex h-full flex-col justify-between bg-indigo p-6 text-cream sm:p-8 md:h-[min(56vh,620px)]">
             <div>
               <span class="rounded-full border border-cream/30 px-3 py-1 text-xs font-semibold">Segera hadir</span>
               <h3 class="mt-6 font-display text-3xl leading-tight">Dark Spot Correcting Night Cream</h3>
