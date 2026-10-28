@@ -65,10 +65,10 @@ const chapters = [
         <p class="mt-3 max-w-[34ch] leading-relaxed text-ink/65">{chapters[1].body}</p>
       </li>
       <li class="sm:col-span-2 lg:col-span-1 lg:mt-16">
-        <figure class="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] bg-cream sm:aspect-[8/5] lg:aspect-[4/5]">
+        <figure class="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] bg-white sm:aspect-[8/5] lg:aspect-[4/5]">
           <div class="absolute inset-y-0 left-1/2 aspect-[4/5] -translate-x-1/2">
             {lineup.map((p) => (
-              <Image src={p.src} alt="" height={480} class={`absolute w-auto mix-blend-multiply ${p.pos}`} />
+              <Image src={p.src} alt="" height={480} class={`absolute w-auto mix-blend-multiply [filter:brightness(1.04)_contrast(1.04)] ${p.pos}`} />
             ))}
           </div>
           <figcaption class="sr-only">Lima produk ARN: Gentle Facial Wash, Toner Essence, Ultra Glowing Serum, Skin Glowing Day Cream, Skin Glowing Barrier Cream</figcaption>
