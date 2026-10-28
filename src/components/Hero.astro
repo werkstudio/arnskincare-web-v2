@@ -20,7 +20,7 @@ const callouts = [
   <div class="stage hero-stage relative flex min-h-[100svh] flex-col sm:min-h-[calc(100svh-1.5rem)]">
     <!-- the word -->
     <p
-      class="pointer-events-none absolute inset-x-0 top-[24%] select-none text-center font-display text-[33vw] font-semibold leading-[0.8] tracking-[-0.055em] text-indigo md:top-[17%] md:text-[25.5vw]"
+      class="pointer-events-none absolute inset-x-0 top-[16%] select-none text-center font-display text-[33vw] font-semibold leading-[0.8] tracking-[-0.055em] text-indigo md:top-[17%] md:text-[25.5vw]"
       style="font-variation-settings: 'opsz' 144, 'SOFT' 30;"
       aria-hidden="true"
       data-hero-word
@@ -29,7 +29,7 @@ const callouts = [
     </p>
 
     <!-- product -->
-    <div class="pointer-events-none absolute left-1/2 top-[19%] aspect-square w-[min(108vw,640px)] -translate-x-1/2 md:top-[6%] md:w-[min(64vh,720px)]" data-hero-product>
+    <div class="pointer-events-none absolute left-1/2 top-[27%] aspect-square w-[min(96vw,640px)] -translate-x-1/2 md:top-[38%] md:w-[min(64vh,720px)]" data-hero-product>
       <div class="hero-mask relative h-full w-full" data-float>
         <Image
           src={heroImg}
@@ -101,7 +101,7 @@ const callouts = [
   }
   .hero-mask {
     /* hug the bottle (incl. its sway) so the word stays readable around it */
-    -webkit-mask-image: radial-gradient(ellipse 34% 48% at 50% 45%, #000 64%, transparent 100%);
-    mask-image: radial-gradient(ellipse 34% 48% at 50% 45%, #000 64%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 32% 48% at 50% 45%, #000 78%, transparent 100%);
+    mask-image: radial-gradient(ellipse 32% 48% at 50% 45%, #000 78%, transparent 100%);
   }
 </style>
