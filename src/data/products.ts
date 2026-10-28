@@ -2,7 +2,7 @@ import type { ImageMetadata } from 'astro';
 import facialWash from '../assets/products/facial-wash-editorial.jpg';
 import toner from '../assets/products/toner-editorial.jpg';
 import serum from '../assets/products/serum-flat-editorial.jpg';
-import dayCream from '../assets/products/day-cream-flat.jpg';
+import dayCream from '../assets/products/day-cream-editorial.jpg';
 import barrier from '../assets/products/barrier-cream-editorial.jpg';
 
 export interface Product {
@@ -16,8 +16,6 @@ export interface Product {
   benefits: string[];
   bpom: string | null;
   image: ImageMetadata;
-  /** flat packshot on white: blend it into tinted panels */
-  flat?: boolean;
   ghost: string;
 }
 
@@ -77,7 +75,6 @@ export const products: Product[] = [
     benefits: ['Melindungi dari sinar UVA & UVB', 'Mencerahkan & menyamarkan noda', 'Non-komedogenik, nyaman dipakai harian'],
     bpom: 'NA18241901116',
     image: dayCream,
-    flat: true,
     ghost: 'SPF 50+',
   },
   {
