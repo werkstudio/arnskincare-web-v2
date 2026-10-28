@@ -1,0 +1,90 @@
+---
+import { Image } from 'astro:assets';
+import { products } from '../data/products';
+import nightCream from '../assets/products/darkspop-flat.jpg';
+
+const steps = ['Bersihkan', 'Seimbangkan', 'Rawat', 'Lindungi', 'Pulihkan'];
+
+const tints = [
+  'bg-[radial-gradient(90%_80%_at_40%_40%,#f3ece6_0%,#e2d8cf_100%)]',
+  'bg-[radial-gradient(90%_80%_at_40%_40%,#f6e7e5_0%,#e8cfcd_100%)]',
+  'bg-[radial-gradient(90%_80%_at_40%_40%,#efe9e2_0%,#dcd2c7_100%)]',
+  'bg-[radial-gradient(90%_80%_at_50%_45%,#ffffff_0%,#f1e6e4_100%)]',
+  'bg-[radial-gradient(90%_80%_at_40%_40%,#eeeceb_0%,#d9d5d2_100%)]',
+];
+---
+
+<section id="ritual" class="relative overflow-hidden py-20 md:py-0" aria-labelledby="ritual-title" data-hscroll-section>
+  <div class="md:flex md:h-screen md:flex-col md:justify-center md:pt-20">
+    <div class="mx-auto flex w-full max-w-7xl flex-col gap-6 px-5 sm:px-8 md:flex-row md:items-end md:justify-between">
+      <div>
+        <span class="eyebrow">Ritual ARN</span>
+        <h2 id="ritual-title" class="mt-4 font-display text-[clamp(2rem,5vw,3.75rem)] font-medium leading-[1.05] tracking-[-0.015em]">
+          Lima langkah, satu tugas untuk masing-masing.
+        </h2>
+      </div>
+      <p class="max-w-sm text-sm leading-relaxed text-muted">
+        Pakai berurutan, pagi dan malam. Setiap formula dirancang untuk bekerja bersama langkah sebelum dan sesudahnya.
+      </p>
+    </div>
+
+    <div class="mt-10 overflow-x-auto md:mt-8 overscroll-x-contain [scrollbar-width:none] md:mt-12 [&::-webkit-scrollbar]:hidden [&.is-pinned]:overflow-visible" data-hscroll>
+      <ol class="flex w-max snap-x snap-mandatory gap-4 px-5 sm:gap-6 sm:px-8 md:px-[max(2rem,calc((100vw-80rem)/2+2rem))]" data-hscroll-track>
+        {products.map((p, i) => (
+          <li id={p.slug} class="w-[86vw] shrink-0 snap-center sm:w-[78vw] md:w-[min(72vw,1040px)]">
+            <article class={`stage grid h-full md:h-[min(64vh,620px)] md:grid-cols-[1.1fr_1fr] ${tints[i]}`} aria-labelledby={`${p.slug}-name`}>
+              <div class="relative aspect-square overflow-hidden md:aspect-auto md:h-full">
+                <Image
+                  src={p.image}
+                  alt={`ARN ${p.name} — ${p.ingredients.join(', ')}`}
+                  widths={[480, 720, 960]}
+                  sizes="(min-width: 768px) 40vw, 86vw"
+                  class={`relative h-full w-full ${p.flat ? 'object-contain p-[12%] mix-blend-multiply' : 'object-cover'}`}
+                  data-card-img
+                />
+              </div>
+              <div class="flex flex-col justify-between gap-8 p-6 sm:p-8 md:overflow-y-auto md:p-9">
+                <div>
+                  <p class="flex items-baseline gap-3 text-indigo">
+                    <span class="font-display text-6xl font-semibold leading-none tracking-[-0.04em] sm:text-7xl" aria-hidden="true">{i + 1}</span>
+                    <span class="text-sm font-semibold">Langkah {i + 1}: {steps[i]}</span>
+                  </p>
+                  <h3 id={`${p.slug}-name`} class="mt-5 font-display text-3xl font-medium leading-tight tracking-[-0.01em] sm:text-[2.1rem]">ARN {p.name}</h3>
+                  <p class="mt-2 text-base text-ink/70">{p.tagline}</p>
+                  <p class="mt-4 text-sm leading-relaxed text-muted [@media(min-width:768px)_and_(max-height:800px)]:hidden">{p.description}</p>
+                  <ul class="mt-6 space-y-2.5">
+                    {p.benefits.map((b) => (
+                      <li class="flex gap-3 text-sm">
+                        <svg class="mt-0.5 shrink-0 text-indigo" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div class="flex flex-wrap items-center gap-2">
+                  {p.ingredients.map((ing) => <span class="pill !py-1.5 !font-medium">{ing}</span>)}
+                  <span class="ml-auto text-xs tabular-nums text-ink/50">
+                    {p.bpom ? `BPOM ${p.bpom}` : 'BPOM terdaftar'}
+                  </span>
+                </div>
+              </div>
+            </article>
+          </li>
+        ))}
+        <li class="w-[70vw] shrink-0 snap-center sm:w-[46vw] md:w-[min(30vw,420px)]">
+          <article class="stage flex h-full flex-col justify-between bg-indigo p-6 text-cream sm:p-8 md:h-[min(64vh,620px)]">
+            <div>
+              <span class="rounded-full border border-cream/30 px-3 py-1 text-xs font-semibold">Segera hadir</span>
+              <h3 class="mt-6 font-display text-3xl leading-tight">Dark Spot Correcting Night Cream</h3>
+              <p class="mt-3 text-sm text-cream/65">Triactive Complex untuk ritual malam. Nantikan kabarnya.</p>
+            </div>
+            <div class="mx-auto my-6 w-3/4 overflow-hidden rounded-full bg-white md:my-4 md:w-[min(60%,32vh)]">
+              <Image src={nightCream} alt="ARN Dark Spot Correcting Night Cream, kemasan jar putih 10 g" width={420} class="aspect-square w-full scale-125 object-cover" />
+            </div>
+            <a href="#mulai" class="btn border border-cream/25 text-cream hover:bg-cream hover:text-indigo">Kabari saya</a>
+          </article>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
