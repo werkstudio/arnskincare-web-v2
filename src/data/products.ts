@@ -103,3 +103,55 @@ export const ingredients = [
   { name: 'Gluconolactone', role: 'Menghaluskan', text: 'PHA lembut yang memperbaiki tekstur tanpa membuat kulit perih.' },
   { name: 'Salix Alba', role: 'Membersihkan', text: 'Ekstrak willow bark yang membantu mengangkat sel kulit mati dan mengontrol minyak.' },
 ];
+
+/**
+ * Skin-concern picker (ClosingCTA). Each recommendation points at a product slug and quotes
+ * the benefit from that product's `benefits` above that supports it — add a concern only when
+ * a product's own benefit text backs it up.
+ */
+export interface Concern {
+  id: string;
+  label: string;
+  picks: { slug: string; why: string }[];
+}
+
+export const concerns: Concern[] = [
+  {
+    id: 'kemerahan',
+    label: 'Kemerahan & sensitif',
+    picks: [
+      { slug: 'gentle-facial-wash', why: 'Menenangkan kemerahan & iritasi' },
+      { slug: 'skin-glowing-barrier-cream', why: 'Menenangkan kemerahan & iritasi' },
+    ],
+  },
+  {
+    id: 'jerawat',
+    label: 'Jerawat & bekasnya',
+    picks: [
+      { slug: 'gentle-facial-wash', why: 'Membantu mencegah jerawat baru' },
+      { slug: 'toner-essence', why: 'Melembapkan intensif & menyeimbangkan minyak' },
+      { slug: 'ultra-glowing-serum', why: 'Menyamarkan flek hitam & bekas jerawat' },
+    ],
+  },
+  {
+    id: 'kusam',
+    label: 'Kusam & noda hitam',
+    picks: [
+      { slug: 'ultra-glowing-serum', why: 'Menyamarkan flek hitam & bekas jerawat' },
+      { slug: 'skin-glowing-day-cream', why: 'Mencerahkan & menyamarkan noda' },
+    ],
+  },
+  {
+    id: 'kering',
+    label: 'Kering & barrier lemah',
+    picks: [
+      { slug: 'toner-essence', why: 'Melembapkan intensif & menyeimbangkan minyak' },
+      { slug: 'skin-glowing-barrier-cream', why: 'Memperkuat skin barrier' },
+    ],
+  },
+  {
+    id: 'matahari',
+    label: 'Perlindungan matahari',
+    picks: [{ slug: 'skin-glowing-day-cream', why: 'Melindungi dari sinar UVA & UVB' }],
+  },
+];

@@ -9,7 +9,7 @@ import dayCut from '../assets/lineup/day-cream.jpg';
 import barrierCut from '../assets/lineup/barrier-cream.jpg';
 
 const manifesto =
-  'Matahari tropis, polusi kota, masker seharian, dan produk yang terlalu keras. Kulitmu tidak rewel. Ia hanya lelah. Kami membuat ARN untuk memahaminya, bukan melawannya.';
+  'Kulitmu tidak rewel, hanya lelah oleh matahari, polusi, dan masker. ARN memahaminya, bukan melawannya.';
 const words = manifesto.split(' ');
 
 // packshots trimmed to their edges, arranged as a group: three bottles behind, two jars in front
@@ -23,21 +23,18 @@ const lineup = [
 
 const chapters = [
   {
-    n: 'Bab 1',
     img: skinImg,
     alt: 'Perempuan dengan kulit sensitif yang sedikit kemerahan menyentuh pipinya dengan lembut',
-    title: 'Sudah mencoba banyak hal, kulit justru makin sensitif.',
+    title: 'Sudah coba banyak hal, kulit makin sensitif.',
     body: 'Cerita yang paling sering kami dengar: kemerahan, jerawat yang datang lagi, dan rasa ketarik setelah cuci muka.',
   },
   {
-    n: 'Bab 2',
     img: serumImg,
     alt: 'ARN Ultra Glowing Serum dengan tranexamic peptide dan ferulic acid',
     title: 'Bahan aktif yang bekerja bersama kulit.',
     body: 'Cica untuk menenangkan, probiotik dan ceramide untuk barrier, tranexamic peptide untuk cerah yang merata. Teruji klinis.',
   },
   {
-    n: 'Bab 3',
     title: 'Lima langkah yang benar-benar kamu jalani.',
     body: 'Bersihkan, seimbangkan, rawat, lindungi, pulihkan. Cukup sederhana untuk pagi yang terburu-buru.',
   },
@@ -46,8 +43,8 @@ const chapters = [
 
 <section id="cerita" class="px-5 pt-24 pb-20 sm:px-8 md:pt-36 md:pb-24 lg:px-12" aria-labelledby="story-title">
   <div class="mx-auto max-w-[78rem]">
-    <h2 id="story-title" class="text-sm font-semibold text-indigo">Cerita kami</h2>
-    <p class="mt-6 max-w-[22ch] font-display text-[clamp(2rem,5.4vw,4.6rem)] font-normal leading-[1.08] tracking-[-0.025em] text-ink sm:max-w-[24ch]" data-words>
+    <h2 id="story-title" class="sr-only">Cerita kami</h2>
+    <p class="max-w-[42rem] font-display text-h3 font-normal text-ink" data-words>
       {words.map((w) => <span class="word">{w} </span>)}
     </p>
 
@@ -69,10 +66,9 @@ const chapters = [
               <Image src={c.img!} alt={c.alt!} widths={[480, 720, 960]} sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 92vw" class="aspect-[4/5] w-full object-cover" data-parallax />
             </figure>
           )}
-          <div class="mt-7 border-t border-ink/10 pt-5">
-            <p class="text-sm font-semibold text-rose-deep">{c.n}</p>
-            <h3 class="mt-2 max-w-[22ch] font-display text-[1.6rem] font-medium leading-[1.15] tracking-[-0.01em] text-ink">{c.title}</h3>
-            <p class="mt-3 max-w-[36ch] leading-relaxed text-ink/65">{c.body}</p>
+          <div class="mt-7">
+            <h3 class="font-display text-h3 font-medium text-ink">{c.title}</h3>
+            <p class="mt-3 max-w-[40ch] text-body text-ink">{c.body}</p>
           </div>
         </li>
       ))}

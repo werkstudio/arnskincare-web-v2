@@ -20,6 +20,24 @@
   --font-sans: 'Manrope Variable', ui-sans-serif, system-ui, sans-serif;
 
   --radius-stage: 2rem;
+
+  /*
+   * Type scale: five sizes. display (the hero word, set in vw inside Hero.astro), then:
+   *   h2    section headings, stat figures, big-type list items   32px -> 60px
+   *   h3    item titles, card names, statements, sub-leads         24px -> 32px
+   *   body  every paragraph meant to be read                       17px
+   *   small secondary notes only (BPOM numbers, legal, UI chrome)  14px
+   */
+  --text-h2: clamp(2rem, 1.35rem + 2.9vw, 3.75rem);
+  --text-h2--line-height: 1.05;
+  --text-h2--letter-spacing: -0.02em;
+  --text-h3: clamp(1.5rem, 1.2rem + 0.9vw, 2rem);
+  --text-h3--line-height: 1.15;
+  --text-h3--letter-spacing: -0.01em;
+  --text-body: 1.0625rem;
+  --text-body--line-height: 1.6;
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.5;
 }
 
 @layer base {
@@ -32,9 +50,13 @@
   html.lenis { scroll-behavior: auto; }
   body {
     font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
     background: var(--color-greige);
     overflow-x: clip;
   }
+  /* reading measure: no paragraph runs past ~65 characters */
+  p { max-width: 65ch; }
   ::selection { background: var(--color-blush); color: var(--color-ink); }
   :focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 3px; border-radius: 4px; }
 }
@@ -42,10 +64,6 @@
 @layer components {
   .stage {
     @apply relative overflow-hidden rounded-[var(--radius-stage)];
-  }
-  /* small sentence-case section label in brand indigo */
-  .eyebrow {
-    @apply inline-block text-sm font-semibold text-indigo;
   }
   .ghost {
     font-family: var(--font-display);
@@ -59,22 +77,16 @@
     pointer-events: none;
   }
   .pill {
-    @apply inline-flex items-center gap-2 rounded-full bg-white/85 px-3.5 py-2 text-xs font-semibold text-ink shadow-[0_8px_24px_-12px_rgb(28_27_34/0.35)] backdrop-blur-md;
-  }
-  .pill-dot {
-    @apply grid h-5 w-5 place-items-center rounded-full bg-ink text-[0.7rem] leading-none text-white;
+    @apply inline-flex items-center gap-2 rounded-full bg-white/85 px-3.5 py-2 text-small font-semibold text-ink;
   }
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold transition duration-300;
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-body font-semibold transition duration-300;
   }
   .btn-primary {
     @apply bg-indigo text-cream hover:bg-ink;
   }
   .btn-ghost {
     @apply bg-white/70 text-indigo backdrop-blur hover:bg-white;
-  }
-  .glass {
-    @apply border border-white/60 bg-white/40 backdrop-blur-xl;
   }
 }
 

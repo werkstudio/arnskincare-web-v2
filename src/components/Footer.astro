@@ -11,18 +11,18 @@ const year = new Date().getFullYear();
   <div class="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
     <div>
       <Image src={logo} alt="ARN Skincare" width={110} class="h-auto w-[96px]" />
-      <p class="mt-4 max-w-xs text-sm leading-relaxed text-muted">Skincare lembut untuk kulit tropis yang tenang, sehat, dan bercahaya. Seluruh produk terdaftar BPOM.</p>
+      <p class="mt-4 max-w-xs text-body text-ink">Skincare lembut untuk kulit tropis yang tenang, sehat, dan bercahaya. Seluruh produk terdaftar BPOM.</p>
     </div>
     <nav aria-label="Produk">
-      <h3 class="text-sm font-semibold text-indigo">Produk</h3>
-      <ul class="mt-4 space-y-2 text-sm">
+      <h3 class="text-body font-semibold text-indigo">Produk</h3>
+      <ul class="mt-4 space-y-2 text-body">
         {products.map((p) => <li><a href={`#${p.slug}`} class="hover:text-rose-deep">{p.name}</a></li>)}
       </ul>
     </nav>
     <div>
-      <h3 class="text-sm font-semibold text-indigo">Terhubung</h3>
+      <h3 class="text-body font-semibold text-indigo">Terhubung</h3>
       <!-- TODO: replace with real social and marketplace links -->
-      <ul class="mt-4 space-y-2 text-sm">
+      <ul class="mt-4 space-y-2 text-body">
         <li><a href="#mulai" class="hover:text-rose-deep">WhatsApp</a></li>
         <li><a href="#" class="hover:text-rose-deep">Instagram</a></li>
         <li><a href="#" class="hover:text-rose-deep">TikTok</a></li>
@@ -30,7 +30,7 @@ const year = new Date().getFullYear();
       </ul>
     </div>
   </div>
-  <div class="mx-auto mt-12 flex max-w-7xl flex-col justify-between gap-2 border-t border-ink/10 pt-6 text-xs text-muted sm:flex-row">
+  <div class="mx-auto mt-16 flex max-w-7xl flex-col justify-between gap-2 text-small text-muted sm:flex-row">
     <p>© {year} ARN Skincare. Seluruh hak dilindungi.</p>
     <p>arnskincare.id</p>
   </div>

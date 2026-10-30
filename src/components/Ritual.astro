@@ -3,7 +3,9 @@ import { Image } from 'astro:assets';
 import { products } from '../data/products';
 import nightCream from '../assets/products/darkspop-flat.jpg';
 
+// order is told in words, not numerals
 const steps = ['Bersihkan', 'Seimbangkan', 'Rawat', 'Lindungi', 'Pulihkan'];
+const ordinals = ['pertama', 'kedua', 'ketiga', 'keempat', 'kelima'];
 
 const tints = [
   'bg-[radial-gradient(90%_80%_at_40%_40%,#f3ece6_0%,#e2d8cf_100%)]',
@@ -16,14 +18,11 @@ const tints = [
 
 <section id="ritual" class="relative overflow-hidden py-20 md:py-0" aria-labelledby="ritual-title" data-hscroll-section>
   <div class="md:flex md:h-screen md:flex-col md:justify-center md:pt-24 short:pt-20">
-    <div class="mx-auto flex w-full max-w-7xl flex-col gap-6 px-5 sm:px-8 md:flex-row md:items-end md:justify-between">
-      <div>
-        <span class="eyebrow short:hidden">Ritual ARN</span>
-        <h2 id="ritual-title" class="mt-4 short:mt-0 font-display text-[clamp(2rem,min(5vw,7.5vh),3.75rem)] font-medium leading-[1.05] tracking-[-0.015em]">
-          Lima langkah, satu tugas untuk masing-masing.
-        </h2>
-      </div>
-      <p class="max-w-sm text-sm leading-relaxed text-muted">
+    <div class="mx-auto flex w-full max-w-7xl flex-col gap-4 px-5 sm:px-8 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
+      <h2 id="ritual-title" class="font-display text-h2 font-medium short:text-h3">
+        Lima langkah, satu tugas <span class="whitespace-nowrap">masing-masing.</span>
+      </h2>
+      <p class="max-w-md text-body text-ink lg:max-w-xs lg:shrink-0">
         Pakai berurutan, pagi dan malam. Setiap formula dirancang untuk bekerja bersama langkah sebelum dan sesudahnya.
       </p>
     </div>
@@ -45,17 +44,13 @@ const tints = [
               </div>
               <div class="flex flex-col justify-between gap-6 p-6 sm:p-8 short:gap-4 short:p-6">
                 <div>
-                  <p class="flex items-baseline gap-3 text-indigo">
-                    <span class="font-display text-6xl font-semibold leading-none tracking-[-0.04em] sm:text-7xl md:text-6xl short:text-5xl" aria-hidden="true">{i + 1}</span>
-                    <span class="text-sm font-semibold">Langkah {i + 1}: {steps[i]}</span>
-                  </p>
-                  <h3 id={`${p.slug}-name`} class="mt-4 font-display text-3xl font-medium leading-tight tracking-[-0.01em] sm:text-[2.1rem] short:mt-3 short:text-[1.75rem]">ARN {p.name}</h3>
-                  <p class="mt-2 text-base text-ink/70">{p.tagline}</p>
-                  <p class="mt-4 text-sm leading-relaxed text-muted short:hidden">{p.description}</p>
+                  <h3 id={`${p.slug}-name`} class="font-display text-h3 font-medium">{p.name}</h3>
+                  <p class="mt-3 text-body text-ink"><span class="font-semibold text-indigo">Langkah {ordinals[i]}: {steps[i].toLowerCase()}.</span> {p.tagline}</p>
+                  <p class="mt-3 text-body text-ink md:max-lg:hidden short:hidden">{p.description}</p>
                   <ul class="mt-5 space-y-2 short:mt-4 short:space-y-1.5">
                     {p.benefits.map((b) => (
-                      <li class="flex gap-3 text-sm">
-                        <svg class="mt-0.5 shrink-0 text-indigo" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      <li class="flex gap-3 text-body text-ink">
+                        <svg class="mt-1 shrink-0 text-indigo" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         {b}
                       </li>
                     ))}
@@ -63,7 +58,7 @@ const tints = [
                 </div>
                 <div class="flex flex-wrap items-center gap-2">
                   {p.ingredients.map((ing) => <span class="pill !py-1.5 !font-medium">{ing}</span>)}
-                  <span class="ml-auto text-xs tabular-nums text-ink/50">
+                  <span class="ml-auto text-small tabular-nums text-muted">
                     {p.bpom ? `BPOM ${p.bpom}` : 'BPOM terdaftar'}
                   </span>
                 </div>
@@ -71,17 +66,16 @@ const tints = [
             </article>
           </li>
         ))}
-        <li class="w-[70vw] shrink-0 snap-center sm:w-[46vw] md:w-[min(32vw,440px)]">
+        <li class="w-[78vw] shrink-0 snap-center sm:w-[46vw] md:w-[min(44vw,440px)]">
           <article class="stage flex h-full flex-col justify-between bg-indigo p-6 text-cream sm:p-8 md:min-h-[min(56vh,620px)]">
             <div>
-              <span class="rounded-full border border-cream/30 px-3 py-1 text-xs font-semibold">Segera hadir</span>
-              <h3 class="mt-6 font-display text-3xl leading-tight">Dark Spot Correcting Night Cream</h3>
-              <p class="mt-3 text-sm text-cream/65">Triactive Complex untuk ritual malam. Nantikan kabarnya.</p>
+              <h3 class="font-display text-h3 font-medium">Dark Spot Correcting Night Cream</h3>
+              <p class="mt-3 text-body text-cream">Segera hadir: Triactive Complex untuk ritual malam. Nantikan kabarnya.</p>
             </div>
             <div class="mx-auto my-6 w-3/4 overflow-hidden rounded-full bg-white md:my-4 md:w-[min(60%,32vh)] short:my-2 short:w-[min(45%,18vh)]">
               <Image src={nightCream} alt="ARN Dark Spot Correcting Night Cream, kemasan jar putih 10 g" width={420} class="aspect-square w-full scale-125 object-cover" />
             </div>
-            <a href="#mulai" class="btn border border-cream/25 text-cream hover:bg-cream hover:text-indigo">Kabari saya</a>
+            <a href="#mulai" class="btn bg-cream/15 text-cream hover:bg-cream hover:text-indigo">Kabari saya</a>
           </article>
         </li>
       </ol>

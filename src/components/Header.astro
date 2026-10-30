@@ -20,14 +20,14 @@ const links = [
       <Image src={logo} alt="ARN Skincare" width={84} class="h-auto w-[68px] sm:w-[84px]" loading="eager" />
     </a>
 
-    <ul class="hidden items-center gap-8 text-sm font-medium md:flex">
+    <ul class="hidden items-center gap-8 text-small font-medium md:flex">
       {links.map((l) => (
-        <li><a href={l.href} class="relative py-1 text-ink/75 transition hover:text-ink after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:bg-ink after:transition hover:after:scale-x-100">{l.label}</a></li>
+        <li><a href={l.href} class="relative py-1 text-ink transition hover:text-ink after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:bg-ink after:transition hover:after:scale-x-100">{l.label}</a></li>
       ))}
     </ul>
 
     <div class="flex items-center gap-2">
-      <a href="#mulai" class="btn btn-primary hidden !px-5 !py-2.5 sm:inline-flex">Mulai ritual</a>
+      <a href="#mulai" class="btn btn-primary hidden !px-5 !py-2.5 !text-small sm:inline-flex">Mulai ritual</a>
       <button
         type="button"
         class="grid h-10 w-10 place-items-center rounded-full bg-white/70 md:hidden"
@@ -51,7 +51,7 @@ const links = [
   >
     <ul class="flex flex-col gap-1">
       {links.map((l) => (
-        <li><a href={l.href} class="block rounded-2xl px-3 py-3 font-display text-2xl" data-menu-link>{l.label}</a></li>
+        <li><a href={l.href} class="block rounded-2xl px-3 py-3 font-display text-h3" data-menu-link>{l.label}</a></li>
       ))}
     </ul>
     <a href="#mulai" class="btn btn-primary mt-4 w-full" data-menu-link>Mulai ritual</a>
