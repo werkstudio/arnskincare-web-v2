@@ -17,7 +17,7 @@ npm run preview   # serve the built dist/
 ## Architecture
 
 - `src/pages/index.astro` is the only page: it composes section components in order (Hero, Story, Ritual, Values, Ingredients, Trust, ClosingCTA) inside `layouts/Base.astro`, between `Header` and `Footer`, and loads `scripts/motion.ts`.
-- `src/layouts/Base.astro` owns the `<head>`: canonical/OG/Twitter tags and JSON-LD (Organization + an ItemList of Products generated from `src/data/products.ts`). It also runs an inline script that adds the `motion-ok` class to `<html>` unless the user prefers reduced motion.
+- `src/layouts/Base.astro` owns the `<head>`: canonical/OG/Twitter tags and JSON-LD (Organization + WebSite schema). It also runs an inline script that adds the `motion-ok` class to `<html>` unless the user prefers reduced motion.
 - `src/data/products.ts` is the single source of product copy (slug, ritual step, tagline, ingredients, benefits, BPOM number, image). Components and the JSON-LD both read from it. Product copy originates from `deskripsi pendek produk.md` (Indonesian source text, including BPOM numbers); `references/` holds design reference images, `products-image/` raw product shots. Neither is imported by the site.
 - Images live in `src/assets/` and are imported as `ImageMetadata` for `astro:assets`; the hero video is in `public/video/` (webm + mp4) with the editorial still beneath it as LCP/reduced-motion fallback.
 - Design tokens (colors like `greige`, `indigo`, `blush`, `ink`; `font-display` Fraunces, `font-sans` Manrope; `--radius-stage`) are defined in the `@theme` block of `src/styles/global.css`, along with shared component classes (`.stage`, `.eyebrow`, `.ghost`, `.pill`).

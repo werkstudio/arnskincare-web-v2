@@ -1,6 +1,5 @@
 ---
 import '../styles/global.css';
-import { products } from '../data/products';
 
 interface Props {
   title: string;
@@ -24,20 +23,13 @@ const jsonLd = {
       description,
     },
     {
-      '@type': 'ItemList',
-      name: 'Rangkaian Skincare ARN',
-      itemListElement: products.map((p, i) => ({
-        '@type': 'ListItem',
-        position: i + 1,
-        item: {
-          '@type': 'Product',
-          name: `ARN ${p.name}`,
-          description: p.description,
-          image: new URL(p.image.src, site).href,
-          brand: { '@id': `${site.href}#org` },
-          url: `${canonical}#${p.slug}`,
-        },
-      })),
+      '@type': 'WebSite',
+      '@id': `${site.href}#website`,
+      url: site.href,
+      name: 'ARN Skincare',
+      description,
+      publisher: { '@id': `${site.href}#org` },
+      inLanguage: 'id-ID',
     },
   ],
 };
